@@ -1,10 +1,9 @@
 <script setup lang="ts">
-import { SwitchThemeButton } from '@/components/ui/switch-theme-button'
-
+import { RouterView } from 'vue-router';
 </script>
 
 <template>
-  <SwitchThemeButton />
+  <RouterView />
 </template>
 
 <style scoped>
