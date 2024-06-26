@@ -22,3 +22,10 @@ Route::middleware([
         return Inertia::render('Dashboard');
     })->name('dashboard');
 });
+
+Route::get('/test', function () {
+    return [
+        'asdfsadfasdfasdfsadfsadfsadfsadf',
+        '11111111111111111'
+    ];
+});
