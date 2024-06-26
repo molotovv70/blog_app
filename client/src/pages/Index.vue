@@ -14,9 +14,6 @@ const count = ref(0);
 // }
 // const userData = {
 // }
-const email = 'sergexa.kulik1991@gmail.com'
-const password = 'ezazalil232'
-const username = '0xenthusiast'
 
 const fetchData = async () => {
   try {
