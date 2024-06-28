@@ -16,5 +16,9 @@ import { Footer } from "@/components/widgets/footer";
 </template>
 
 <style scoped>
-
+.main {
+  width: 1320px;
+  align-self: center;
+  padding: 0 15px;
+}
 </style>

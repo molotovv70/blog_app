@@ -7,7 +7,7 @@ import UserNav from "@/components/widgets/user-nav/UserNav.vue";
 </script>
 
 <template>
-  <div class="border-b">
+  <div class="border-b mb-4">
     <div class="flex h-16 items-center px-4 justify-between">
       <MainNav />
       <div class="justify-self-end flex gap-x-4 items-center">
