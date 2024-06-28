@@ -1,5 +1,13 @@
 <script setup lang="ts">
 import { cn } from '@/lib/utils'
+
+import { useRoute } from 'vue-router';
+const route = useRoute();
+
+const isActive = (path: string) => {
+  return route.path === path;
+};
+
 </script>
 
 <template>
@@ -7,28 +15,14 @@ import { cn } from '@/lib/utils'
       :class="cn('flex items-center space-x-4 lg:space-x-6', $attrs.class ?? '')"
   >
     <a
-        href="/examples/dashboard"
-        class="text-sm font-medium transition-colors hover:text-primary"
+        :class="['text-sm font-medium transition-colors hover:text-primary', { 'text-muted-foreground': !isActive('/home') }]"
     >
-      Overview
+      <routerLink to="/home">Home</routerLink>
     </a>
     <a
-        href="/examples/dashboard"
-        class="text-sm font-medium text-muted-foreground transition-colors hover:text-primary"
+        :class="['text-sm font-medium transition-colors hover:text-primary', { 'text-muted-foreground': !isActive('/users') }]"
     >
-      Customers
-    </a>
-    <a
-        href="/examples/dashboard"
-        class="text-sm font-medium text-muted-foreground transition-colors hover:text-primary"
-    >
-      Products
-    </a>
-    <a
-        href="/examples/dashboard"
-        class="text-sm font-medium text-muted-foreground transition-colors hover:text-primary"
-    >
-      Settings
+      <routerLink to="/users">Users</routerLink>
     </a>
   </nav>
 </template>

@@ -4,6 +4,7 @@ import Index from "@/pages/Index.vue";
 import Login from "@/pages/Login.vue";
 import Register from "@/pages/Register.vue";
 import Home from "@/pages/Home/Home.vue";
+import Users from "@/pages/Users/Users.vue";
 
 
 const routes: Readonly<RouteRecordRaw[]> = [
@@ -26,6 +27,11 @@ const routes: Readonly<RouteRecordRaw[]> = [
         path: '/home',
         name: 'home',
         component: Home
+    },
+    {
+        path: '/users',
+        name: 'users',
+        component: Users
     },
 ]
 
