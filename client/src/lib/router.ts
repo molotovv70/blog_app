@@ -5,6 +5,7 @@ import Login from "@/pages/Login.vue";
 import Register from "@/pages/Register.vue";
 import Home from "@/pages/Home/Home.vue";
 import UsersList from "@/pages/User/UsersList.vue";
+import CreatePost from "@/pages/Post/CreatePost.vue";
 
 
 const routes: Readonly<RouteRecordRaw[]> = [
@@ -32,6 +33,11 @@ const routes: Readonly<RouteRecordRaw[]> = [
         path: '/users',
         name: 'users',
         component: UsersList
+    },
+    {
+        path: '/post/create',
+        name: 'create-post',
+        component: CreatePost
     },
 ]
 

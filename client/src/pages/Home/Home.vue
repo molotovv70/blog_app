@@ -12,7 +12,7 @@ import FilterItemsBy from "@/components/ui/filter-items-by/FilterItemsBy.vue";
       <div class="flex justify-between gap-x-4">
         <div class="flex gap-x-2 w-3/4 justify-between">
           <SortItemsBy />
-          <RouterLink to="/posts/create">
+          <RouterLink to="/post/create">
             <Button>Create Post</Button>
           </RouterLink>
         </div>
