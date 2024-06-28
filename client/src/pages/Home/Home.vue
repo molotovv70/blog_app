@@ -5,7 +5,7 @@ import { Layout } from "@/components/layouts";
 
 <template>
   <Layout>
-
+    homepage
   </Layout>
 </template>
 

@@ -3,6 +3,8 @@ import {createWebHistory, createRouter, Router, RouteRecordRaw} from 'vue-router
 import Index from "@/pages/Index.vue";
 import Login from "@/pages/Login.vue";
 import Register from "@/pages/Register.vue";
+import Home from "@/pages/Home/Home.vue";
+
 
 const routes: Readonly<RouteRecordRaw[]> = [
     {
@@ -19,6 +21,11 @@ const routes: Readonly<RouteRecordRaw[]> = [
         path: '/register',
         name: 'register',
         component: Register
+    },
+    {
+        path: '/home',
+        name: 'home',
+        component: Home
     },
 ]
 

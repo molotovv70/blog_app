@@ -4,9 +4,15 @@ import { Footer } from "@/components/widgets/footer";
 </script>
 
 <template>
-  <Header />
-  <slot />
-  <Footer />
+  <div class="header">
+    <Header />
+  </div>
+  <div class="main">
+    <slot />
+  </div>
+  <div class="footer">
+    <Footer />
+  </div>
 </template>
 
 <style scoped>

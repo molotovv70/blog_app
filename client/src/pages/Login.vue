@@ -1,12 +1,29 @@
 <script setup lang="ts">
-import { Button } from '@/components/ui/button'
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
-import { Input } from '@/components/ui/input'
-import { Label } from '@/components/ui/label'
+import { ref } from "vue";
+import { Button } from '@/components/ui/button';
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
+import { Input } from '@/components/ui/input';
+import { Label } from '@/components/ui/label';
 
-import {useColorMode} from "@vueuse/core";
-const mode = useColorMode()
+import axiosInstance from "@/lib/axios.ts";
+import { useColorMode } from "@vueuse/core";
+import { useUserStore } from "@/stores/user.js";
+import router from "@/lib/router.ts";
+const mode = useColorMode();
 
+const user = ref({
+  email: '',
+  password: ''
+});
+
+const handleLogin = async () => {
+  try {
+    await useUserStore().login(user);
+    router.push('home')
+  } catch (error) {
+    console.error('Error logging in user:', error);
+  }
+};
 </script>
 
 <template>
@@ -27,6 +44,7 @@ const mode = useColorMode()
               id="email"
               type="email"
               placeholder="m@example.com"
+              v-model="user.email"
               required
           />
         </div>
@@ -37,9 +55,14 @@ const mode = useColorMode()
               Forgot your password?
             </a>
           </div>
-          <Input id="password" type="password" required />
+          <Input
+              id="password"
+              type="password"
+              v-model="user.password"
+              required
+          />
         </div>
-        <Button type="submit" class="w-full">
+        <Button type="button" class="w-full" @click="handleLogin">
           Login
         </Button>
       </div>
