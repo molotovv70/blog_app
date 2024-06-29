@@ -1,5 +1,5 @@
 import EditorJS from '@editorjs/editorjs';
-import Header from '@editorjs/header';
+import Header from "@editorjs/header";
 import List from '@editorjs/list';
 
 const createEditor = (holder: string) => {
@@ -9,7 +9,6 @@ const createEditor = (holder: string) => {
             header: {
                 class: Header,
                 inlineToolbar: ['link']
-
             },
             list: {
                 class: List,

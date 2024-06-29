@@ -22,7 +22,7 @@ class PostController extends Controller
 
     public function store(Request $request)
     {
-//        dd($request->all());
+        $data = $request->all();
         $post = $this->postRepository->create($request->all());
         return response()->json($post, 201);
     }
