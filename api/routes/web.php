@@ -23,9 +23,3 @@ Route::middleware([
     })->name('dashboard');
 });
 
-Route::get('/test', function () {
-    return [
-        'asdfsadfasdfasdfsadfsadfsadfsadf',
-        '11111111111111111'
-    ];
-});
