@@ -4,7 +4,7 @@ namespace App\Contracts\Repository;
 
 use App\Models\Post;
 
-interface PostRepositoryContract
+interface PostContract
 {
     public function getAll();
     public function getById($id);

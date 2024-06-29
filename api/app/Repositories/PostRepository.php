@@ -2,9 +2,9 @@
 namespace App\Repositories;
 
 use App\Models\Post;
-use App\Contracts\Repository\PostRepositoryContract;
+use App\Contracts\Repository\PostContract;
 
-class PostRepository implements PostRepositoryContract
+class PostRepository implements PostContract
 {
     protected Post $post;
 

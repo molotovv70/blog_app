@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Contracts\Repository\PostRepositoryContract;
+use App\Contracts\Repository\PostContract;
 use App\Http\Requests\Post\StoreRequest;
 use App\Http\Requests\Post\UpdateRequest;
 use App\Http\Resources\PostResource;
@@ -10,9 +10,9 @@ use Illuminate\Http\Request;
 
 class PostController extends Controller
 {
-    protected PostRepositoryContract $postRepository;
+    protected PostContract $postRepository;
 
-    public function __construct(PostRepositoryContract $postRepository)
+    public function __construct(PostContract $postRepository)
     {
         $this->postRepository = $postRepository;
     }

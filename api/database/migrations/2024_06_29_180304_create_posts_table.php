@@ -15,7 +15,9 @@ return new class extends Migration
             $table->id();
             $table->string('title');
             $table->json('content');
+            $table->foreignId('user_id')->index()->constrained('users');
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 
