@@ -11,7 +11,14 @@
 .main {
   flex-grow: 1;
 }
-
+/* editor-js */
+h1, h2, h3, h4, h5, h6 .ce-header {
+  font-weight: 600;
+}
+.ce-header {
+  font-size: 30px;
+}
+/* others */
 @layer base {
   :root {
     --background: 0 0% 100%;

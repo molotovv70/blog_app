@@ -1,23 +1,15 @@
 <script setup lang="ts">
 
 import Layout from "@/components/layouts/Layout.vue";
+import Button from "@/components/ui/button/Button.vue";
+import createEditor from "@/lib/editorjs.ts";
 
-import EditorJS from '@editorjs/editorjs';
-import Header from '@editorjs/header';
-import List from '@editorjs/list';
+const editor = createEditor('editorjs')
 
-const editor = new EditorJS({
-  holder: 'editorjs',
-  tools: {
-    header: {
-      class: Header,
-      inlineToolbar: ['link']
-    },
-    list: {
-      class: List,
-      inlineToolbar: true
-    }
-  }
+const testData = () => editor.save().then((outputData) => {
+  console.log('Article data: ', outputData)
+}).catch((error) => {
+  console.log('Saving failed: ', error)
 });
 </script>
 
@@ -25,9 +17,10 @@ const editor = new EditorJS({
   <Layout>
     add post
     <div id="editorjs"></div>
+    <Button @click="testData" >Create Post</Button>
   </Layout>
 </template>
 
-<style scoped>
+<style>
 
 </style>
