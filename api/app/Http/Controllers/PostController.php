@@ -23,13 +23,11 @@ class PostController extends Controller
         return response()->json($posts);
     }
 
-    public function store(StoreRequest $request): PostResource
+    public function store(StoreRequest $request): array
     {
         $data = $request->all();
-//        $data['user_id'] = auth()->id();
-//        dd($data);
         $post = $this->postRepository->create($data);
-        return PostResource::make($post);
+        return PostResource::make($post)->resolve();
     }
 
     public function show($id)

@@ -22,6 +22,7 @@ export const useUserStore = defineStore('user', {
             if (userData) {
                 this.user = JSON.parse(userData)
             }
+            return this.user
         },
         clearUser() {
             this.user = null

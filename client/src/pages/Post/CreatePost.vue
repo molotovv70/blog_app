@@ -10,7 +10,7 @@ import router from "@/lib/router.ts";
 
 
 const editor = createEditor('editorjs')
-useUserStore()
+const user = useUserStore().loadUser()
 
 const fetchData = async () => {
   const response = await axiosInstance.get('/api/user')
@@ -19,10 +19,15 @@ const fetchData = async () => {
 const submitPost = async () => {
   let data = await editor.save()
   const transformPostData = useTransformPostData(data)
+  transformPostData.user_id = user.id
+
   const response = await axiosInstance.post('/api/posts', transformPostData)
-  // router.push({
-  //
-  // })
+  const postId = await response.data.id
+
+  router.push({
+    name: 'show-post',
+    params: { id: postId }
+  })
 }
 </script>
 
