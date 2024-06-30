@@ -1,4 +1,8 @@
 <script setup lang="ts">
+import router from "@/lib/router.ts";
+import axiosInstance from "@/lib/axios.ts";
+import axios from "axios";
+
 import {
   Avatar,
   AvatarFallback,
@@ -15,6 +19,13 @@ import {
   DropdownMenuShortcut,
   DropdownMenuTrigger,
 } from '@/components/ui/dropdown-menu'
+
+// import {useUserStore} from "@/stores/user.js";
+
+const logoutUser = async () => {
+  const response = axiosInstance.post('/logout');
+  // useUserStore().clearUser()
+}
 </script>
 
 <template>
@@ -55,10 +66,15 @@ import {
         <DropdownMenuItem>New Team</DropdownMenuItem>
       </DropdownMenuGroup>
       <DropdownMenuSeparator />
-      <DropdownMenuItem>
-        Log out
-        <DropdownMenuShortcut>⇧⌘Q</DropdownMenuShortcut>
-      </DropdownMenuItem>
+<!--      <RouterLink-->
+<!--          @click="logoutUser"-->
+<!--          to="/"-->
+<!--      >-->
+        <DropdownMenuItem @click="logoutUser">
+          Log out
+          <DropdownMenuShortcut>⇧⌘Q</DropdownMenuShortcut>
+        </DropdownMenuItem>
+<!--      </RouterLink>-->
     </DropdownMenuContent>
   </DropdownMenu>
 </template>

@@ -9,9 +9,23 @@ export const useUserStore = defineStore('user', {
         async getTokens() {
             await axiosInstance.get('/sanctum/csrf-cookie')
         },
-        async getUser() {
+        async fetchUser() {
             const response = await axiosInstance.get('/api/user',);
             this.user = response.data
+            this.setUser(response.data)
+        },
+        setUser(data) {
+            localStorage.setItem('user', JSON.stringify(data))
+        },
+        loadUser() {
+            const userData = localStorage.getItem('user')
+            if (userData) {
+                this.user = JSON.parse(userData)
+            }
+        },
+        clearUser() {
+            this.user = null
+            localStorage.removeItem('user')
         },
         async login(user) {
             await this.getTokens()
@@ -19,7 +33,7 @@ export const useUserStore = defineStore('user', {
                 email: user.value.email,
                 password: user.value.password
             })
-            await this.getUser()
+            await this.fetchUser()
         },
         async register(name, email, password, confirmPassword) {
             await this.getTokens()
