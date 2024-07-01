@@ -15,7 +15,7 @@ class PostRepository implements PostContract
 
     public function getAll()
     {
-        return $this->post->all();
+        return $this->post->with('user')->get();
     }
 
     public function getById($id)

@@ -1,7 +1,5 @@
 <script setup lang="ts">
-import router from "@/lib/router.ts";
 import axiosInstance from "@/lib/axios.ts";
-import axios from "axios";
 
 import {
   Avatar,
@@ -58,15 +56,10 @@ const logoutUser = async () => {
         </DropdownMenuItem>
       </DropdownMenuGroup>
       <DropdownMenuSeparator />
-<!--      <RouterLink-->
-<!--          @click="logoutUser"-->
-<!--          to="/"-->
-<!--      >-->
         <DropdownMenuItem @click="logoutUser">
           Log out
           <DropdownMenuShortcut>⇧⌘Q</DropdownMenuShortcut>
         </DropdownMenuItem>
-<!--      </RouterLink>-->
     </DropdownMenuContent>
   </DropdownMenu>
 </template>

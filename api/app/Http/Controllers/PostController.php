@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Contracts\Repository\PostContract;
 use App\Http\Requests\Post\StoreRequest;
 use App\Http\Requests\Post\UpdateRequest;
+use App\Http\Resources\PostPreviewWithUserResource;
 use App\Http\Resources\PostResource;
 use Illuminate\Http\Request;
 
@@ -20,7 +21,7 @@ class PostController extends Controller
     public function index()
     {
         $posts = $this->postRepository->getAll();
-        return response()->json($posts);
+        return PostPreviewWithUserResource::collection($posts)->resolve();
     }
 
     public function store(StoreRequest $request): array
